@@ -1,0 +1,18 @@
+.AwesomeInput {
+  position: relative;
+  z-index: 100;
+  display: inline-block;
+}
+
+.SearchResult {
+  position: absolute;
+  left: 0px;
+  width: 360px;
+  background-color: white;
+  border-bottom: 2px solid #ccc;
+  border-left: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  padding: 3px;
+  box-sizing: border-box;
+  overflow: hidden;
+}

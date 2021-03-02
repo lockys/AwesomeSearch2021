@@ -1,0 +1,25 @@
+.AwesomeReadme {
+  padding-left: 20px;
+  height: 800px;
+  overflow: scroll;
+  max-width: 768px;
+  position: relative;
+}
+
+.ReadmeInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ReadmeCategory {
+  position: fixed;
+  right: 0;
+  top: 60px;
+  height: 600px;
+  width: 200px;
+  overflow: scroll;
+  background-color: white;
+  box-shadow: 0 2px 3px #ccc;
+  z-index: 50;
+  padding: 5px;
+}
