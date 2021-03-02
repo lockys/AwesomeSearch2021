@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router-dom';
 import classes from './AwesomeInput.module.css';
 
 const awesomeInput = (props) => {
-  console.log(props);
   return (
     <div className={classes.AwesomeInput}>
       <fieldset className="form-group">
@@ -26,9 +25,7 @@ const awesomeInput = (props) => {
               {props.searchResult.map((el, idx) => {
                 return (
                   <li key={el.item.name + idx}>
-                    <Link to={`${props.match.path}${el.item.repo}`}>
-                      {el.item.name}
-                    </Link>
+                    <Link to={`/${el.item.repo}`}>{el.item.name}</Link>
                   </li>
                 );
               })}

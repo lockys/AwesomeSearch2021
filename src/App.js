@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/AwesomeSearchReact">
       <div className="hack">
         <AwesomeSearch />
       </div>
