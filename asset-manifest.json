@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/AwesomeSearchReact/static/css/main.05d630f7.chunk.css",
+    "main.css": "/AwesomeSearchReact/static/css/main.df513619.chunk.css",
     "main.js": "/AwesomeSearchReact/static/js/main.a5f93008.chunk.js",
     "main.js.map": "/AwesomeSearchReact/static/js/main.a5f93008.chunk.js.map",
     "runtime-main.js": "/AwesomeSearchReact/static/js/runtime-main.c8b7a23f.js",
@@ -8,13 +8,13 @@
     "static/js/2.edc313d0.chunk.js": "/AwesomeSearchReact/static/js/2.edc313d0.chunk.js",
     "static/js/2.edc313d0.chunk.js.map": "/AwesomeSearchReact/static/js/2.edc313d0.chunk.js.map",
     "index.html": "/AwesomeSearchReact/index.html",
-    "static/css/main.05d630f7.chunk.css.map": "/AwesomeSearchReact/static/css/main.05d630f7.chunk.css.map",
+    "static/css/main.df513619.chunk.css.map": "/AwesomeSearchReact/static/css/main.df513619.chunk.css.map",
     "static/js/2.edc313d0.chunk.js.LICENSE.txt": "/AwesomeSearchReact/static/js/2.edc313d0.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c8b7a23f.js",
     "static/js/2.edc313d0.chunk.js",
-    "static/css/main.05d630f7.chunk.css",
+    "static/css/main.df513619.chunk.css",
     "static/js/main.a5f93008.chunk.js"
   ]
 }
