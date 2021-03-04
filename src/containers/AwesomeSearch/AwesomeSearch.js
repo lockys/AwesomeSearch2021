@@ -7,8 +7,10 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import axios from 'axios';
 import Fuse from 'fuse.js';
 import { Route, withRouter } from 'react-router-dom';
-import classes from './AwesomeSearch.module.css';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
+import toc from 'markdown-toc-unlazy';
+import ReactMarkdown from 'react-markdown';
+import classes from './AwesomeSearch.module.css';
 
 class AwesomeSearch extends Component {
   state = {
@@ -20,6 +22,7 @@ class AwesomeSearch extends Component {
     searchResult: [],
     showResult: false,
     showToc: false,
+    md: '',
   };
 
   getSubjectEntries = () => {
@@ -95,6 +98,12 @@ class AwesomeSearch extends Component {
     });
   };
 
+  setMdHandler = (md) => {
+    this.setState({
+      md: md,
+    });
+  };
+
   render() {
     return (
       <div className={classes.AwesomeSearch}>
@@ -159,12 +168,18 @@ class AwesomeSearch extends Component {
                   return (
                     <AwesomeReadme
                       key={props.match.params.repo}
-                      showToc={this.state.showToc}
+                      setMdHandler={this.setMdHandler}
                       {...props}
                     />
                   );
                 }}
               />
+
+              {this.state.showToc ? (
+                <div className={classes.ReadmeCategory}>
+                  <ReactMarkdown children={toc(this.state.md).content} />
+                </div>
+              ) : null}
             </div>
             <Backdrop
               show={this.state.showResult}

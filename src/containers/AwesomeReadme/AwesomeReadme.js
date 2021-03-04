@@ -8,8 +8,6 @@ import { faStar, faClock } from '@fortawesome/free-solid-svg-icons';
 
 import gfm from 'remark-gfm';
 import axios from 'axios';
-var toc = require('markdown-toc-unlazy');
-
 class AwesomeReadme extends Component {
   state = {
     md: `# Waiting for content loading...`,
@@ -35,6 +33,8 @@ class AwesomeReadme extends Component {
         axios
           .get(res.data.download_url)
           .then((res) => {
+            this.props.setMdHandler(res.data);
+
             this.setState({
               md: res.data,
               user: this.props.match.params.user,
@@ -64,12 +64,6 @@ class AwesomeReadme extends Component {
   render() {
     return (
       <div className={classes.AwesomeReadme}>
-        {this.props.showToc ? (
-          <div className={classes.ReadmeCategory}>
-            <ReactMarkdown children={toc(this.state.md).content} />
-          </div>
-        ) : null}
-
         <div className={classes.ReadmeInfo}>
           <a
             href={`https://github.com/${this.props.match.params.user}/${this.props.match.params.repo}`}
