@@ -28,13 +28,21 @@
   margin: 5px;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 768px) {
   .AwesomeSearch {
     width: 100%;
   }
+
+  .TocButton {
+    display: none;
+  }
+
+  .StarButton {
+    display: none;
+  }
 }
 
-@media (min-width: 770px) {
+@media (min-width: 768px) {
   .BurgerButton {
     display: none;
   }

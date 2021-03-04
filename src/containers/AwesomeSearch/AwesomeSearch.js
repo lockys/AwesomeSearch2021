@@ -69,7 +69,7 @@ class AwesomeSearch extends Component {
   }
 
   topicOnClickHandler = (topic) => {
-    this.setState({ selectedSubject: topic, showToc: false });
+    this.setState({ selectedSubject: topic, showToc: false, showMenu: false });
   };
 
   searchInputOnChangeHandler = (event) => {
@@ -139,7 +139,7 @@ class AwesomeSearch extends Component {
           render={(props) => {
             return (
               <button
-                className="btn btn-success btn-ghost"
+                className={`btn btn-success btn-ghost ${classes.TocButton}`}
                 style={{
                   float: 'right',
                 }}
@@ -159,11 +159,17 @@ class AwesomeSearch extends Component {
           height="20px"
           title="github"
           style={{ float: 'right' }}
+          className={classes.StarButton}
         ></iframe>
 
         {this.state.subjects ? (
           <div className="grid">
-            <div className="cell -2of12">
+            <div
+              className="cell -2of12"
+              style={{
+                width: '100%',
+              }}
+            >
               {this.state.showMenu ? (
                 <AwesomeRwdMenu
                   topics={Object.keys(this.state.subjects)}
@@ -175,7 +181,12 @@ class AwesomeSearch extends Component {
                 topicOnClickHandler={this.topicOnClickHandler}
               />
             </div>
-            <div className="cell -10of12">
+            <div
+              className="cell -10of12"
+              style={{
+                width: '100%',
+              }}
+            >
               <Route
                 path="/"
                 exact

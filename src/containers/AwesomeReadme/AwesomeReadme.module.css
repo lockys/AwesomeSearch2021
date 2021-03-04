@@ -1,6 +1,5 @@
 .AwesomeReadme {
   position: relative;
-  padding-left: 20px;
   overflow: scroll;
   max-width: 768px;
   height: 800px;
@@ -11,7 +10,7 @@
   justify-content: space-between;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 768px) {
   .ReadmeInfo {
     flex-direction: column;
   }
