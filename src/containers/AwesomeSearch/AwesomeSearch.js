@@ -65,7 +65,7 @@ class AwesomeSearch extends Component {
   }
 
   topicOnClickHandler = (topic) => {
-    this.setState({ selectedSubject: topic });
+    this.setState({ selectedSubject: topic, showToc: false });
   };
 
   searchInputOnChangeHandler = (event) => {
