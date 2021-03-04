@@ -81,7 +81,7 @@ class AwesomeSearch extends Component {
   };
 
   searchInputOnFocusHandler = () => {
-    this.props.history.push('/');
+    // this.props.history.push('/');
     this.setState({ showResult: true });
   };
 
@@ -125,13 +125,14 @@ class AwesomeSearch extends Component {
 
         <iframe
           src="https://ghbtns.com/github-btn.html?user=lockys&repo=AwesomeSearchReact&type=star&count=true"
-          frameborder="0"
+          frameBorder="0"
           scrolling="0"
           width="100px"
           height="20px"
           title="github"
           style={{ float: 'right' }}
         ></iframe>
+
         {this.state.subjects ? (
           <div className="grid">
             <div className="cell -2of12">

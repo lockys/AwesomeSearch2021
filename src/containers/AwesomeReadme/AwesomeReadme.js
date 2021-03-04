@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import classes from './AwesomeReadme.module.css';
 import HeadingRenderer from './MarkdownHelper/HeadingRenderer';
 import ReactMarkdown from 'react-markdown';
@@ -10,12 +10,21 @@ import gfm from 'remark-gfm';
 import axios from 'axios';
 var toc = require('markdown-toc-unlazy');
 
-class AwesomeReadme extends PureComponent {
+class AwesomeReadme extends Component {
   state = {
     md: `# Waiting for content loading...`,
     stars: 0,
     updateAt: null,
+    user: '',
+    repo: '',
   };
+
+  shouldComponentUpdate() {
+    return (
+      this.state.user !== this.props.match.params.user &&
+      this.state.repo !== this.props.match.params.repo
+    );
+  }
 
   componentDidMount() {
     axios
@@ -26,7 +35,11 @@ class AwesomeReadme extends PureComponent {
         axios
           .get(res.data.download_url)
           .then((res) => {
-            this.setState({ md: res.data });
+            this.setState({
+              md: res.data,
+              user: this.props.match.params.user,
+              repo: this.props.match.params.repo,
+            });
           })
           .catch((err) => {
             this.setState({ md: `Error when loading repo ${err.message}` });
