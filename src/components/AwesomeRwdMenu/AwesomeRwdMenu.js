@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import classes from './AwesomeListMenu.module.css';
+import classes from './AwesomeRwdMenu.module.css';
 
-const awesomeListMenu = ({ topics, topicOnClickHandler }) => {
+const AwesomeRwdMenu = ({ topics, topicOnClickHandler }) => {
   return (
-    <div className={`menu ${classes.AwesomeListMenu}`}>
+    <div className={`menu ${classes.AwesomeRwdMenu}`}>
       {topics.map((topic) => {
         return (
           <Link
@@ -23,4 +23,4 @@ const awesomeListMenu = ({ topics, topicOnClickHandler }) => {
   );
 };
 
-export default awesomeListMenu;
+export default AwesomeRwdMenu;

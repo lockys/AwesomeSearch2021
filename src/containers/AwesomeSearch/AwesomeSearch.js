@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import AwesomeListMenu from '../../components/AwesomeLists/AwesomeListMenu';
+import AwesomeRwdMenu from '../../components/AwesomeRwdMenu/AwesomeRwdMenu';
 import AwesomeLists from '../../components/AwesomeLists/AwesomeLists';
 import AwesomeInput from '../../components/AwesomeInput/AwesomeInput';
 import AwesomeReadme from '../AwesomeReadme/AwesomeReadme';
@@ -24,7 +25,7 @@ class AwesomeSearch extends Component {
     searchResult: [],
     showResult: false,
     showToc: false,
-    showMenu: true,
+    showMenu: false,
     md: '',
   };
 
@@ -164,11 +165,15 @@ class AwesomeSearch extends Component {
           <div className="grid">
             <div className="cell -2of12">
               {this.state.showMenu ? (
-                <AwesomeListMenu
+                <AwesomeRwdMenu
                   topics={Object.keys(this.state.subjects)}
                   topicOnClickHandler={this.topicOnClickHandler}
                 />
               ) : null}
+              <AwesomeListMenu
+                topics={Object.keys(this.state.subjects)}
+                topicOnClickHandler={this.topicOnClickHandler}
+              />
             </div>
             <div className="cell -10of12">
               <Route

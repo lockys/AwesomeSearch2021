@@ -10,3 +10,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 770px) {
+  .ReadmeInfo {
+    flex-direction: column;
+  }
+}
