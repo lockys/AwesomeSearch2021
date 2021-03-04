@@ -1,9 +1,9 @@
 .AwesomeReadme {
+  position: relative;
   padding-left: 20px;
-  height: 800px;
   overflow: scroll;
   max-width: 768px;
-  position: relative;
+  height: 800px;
 }
 
 .ReadmeInfo {
