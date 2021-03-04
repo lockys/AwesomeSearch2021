@@ -10,6 +10,8 @@ import { Route, withRouter } from 'react-router-dom';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
 import toc from 'markdown-toc-unlazy';
 import ReactMarkdown from 'react-markdown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classes from './AwesomeSearch.module.css';
 
 class AwesomeSearch extends Component {
@@ -22,6 +24,7 @@ class AwesomeSearch extends Component {
     searchResult: [],
     showResult: false,
     showToc: false,
+    showMenu: true,
     md: '',
   };
 
@@ -104,6 +107,14 @@ class AwesomeSearch extends Component {
     });
   };
 
+  burgerButtonClickHandler = () => {
+    this.setState((prevState) => {
+      return {
+        showMenu: !prevState.showMenu,
+      };
+    });
+  };
+
   render() {
     return (
       <div className={classes.AwesomeSearch}>
@@ -114,6 +125,13 @@ class AwesomeSearch extends Component {
           searchInputOnFocus={this.searchInputOnFocusHandler}
           showResult={this.state.showResult}
         />
+
+        <div
+          className={classes.BurgerButton}
+          onClick={this.burgerButtonClickHandler}
+        >
+          <FontAwesomeIcon icon={faBars} />
+        </div>
 
         <Route
           path="/:user/:repo"
@@ -145,10 +163,12 @@ class AwesomeSearch extends Component {
         {this.state.subjects ? (
           <div className="grid">
             <div className="cell -2of12">
-              <AwesomeListMenu
-                topics={Object.keys(this.state.subjects)}
-                topicOnClickHandler={this.topicOnClickHandler}
-              />
+              {this.state.showMenu ? (
+                <AwesomeListMenu
+                  topics={Object.keys(this.state.subjects)}
+                  topicOnClickHandler={this.topicOnClickHandler}
+                />
+              ) : null}
             </div>
             <div className="cell -10of12">
               <Route

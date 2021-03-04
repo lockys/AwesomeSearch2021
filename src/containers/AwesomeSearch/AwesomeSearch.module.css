@@ -20,8 +20,22 @@
   padding: 5px;
 }
 
-@media (max-width: 900px) {
+.BurgerButton {
+  font-size: 20px;
+  display: block;
+  float: right;
+  cursor: pointer;
+  margin: 5px;
+}
+
+@media (max-width: 770px) {
   .AwesomeSearch {
     width: 100%;
+  }
+}
+
+@media (min-width: 770px) {
+  .BurgerButton {
+    display: none;
   }
 }
