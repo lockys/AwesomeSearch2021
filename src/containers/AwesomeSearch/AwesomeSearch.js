@@ -193,6 +193,7 @@ class AwesomeSearch extends Component {
                 render={() => {
                   return (
                     <AwesomeLists
+                      topic={this.state.selectedSubject}
                       subjects={this.state.subjects[this.state.selectedSubject]}
                     />
                   );

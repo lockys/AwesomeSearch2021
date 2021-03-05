@@ -30,20 +30,16 @@ class AwesomeReadme extends Component {
         `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}/readme`
       )
       .then((res) => {
-        axios
-          .get(res.data.download_url)
-          .then((res) => {
-            this.props.setMdHandler(res.data);
+        return axios.get(res.data.download_url);
+      })
+      .then((res) => {
+        this.props.setMdHandler(res.data);
 
-            this.setState({
-              md: res.data,
-              user: this.props.match.params.user,
-              repo: this.props.match.params.repo,
-            });
-          })
-          .catch((err) => {
-            this.setState({ md: `Error when loading repo ${err.message}` });
-          });
+        this.setState({
+          md: res.data,
+          user: this.props.match.params.user,
+          repo: this.props.match.params.repo,
+        });
       })
       .catch((err) => {
         this.setState({ md: `Error when loading repo ${err.message}` });

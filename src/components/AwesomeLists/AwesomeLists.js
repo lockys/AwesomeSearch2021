@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './AwesomeLists.module.css';
 import { Link } from 'react-router-dom';
 
-const awesomeLists = ({ subjects }) => {
+const awesomeLists = ({ topic, subjects }) => {
   subjects.sort((a, b) => {
     let nameA = a.name.toUpperCase();
     let nameB = b.name.toUpperCase();
@@ -21,6 +21,7 @@ const awesomeLists = ({ subjects }) => {
       <div className="alert alert-success">
         Lists are sorted alphabetically! You can easily find it :)
       </div>
+      <h1>{topic}</h1>
 
       {subjects.map((subject, idx) => {
         return (
