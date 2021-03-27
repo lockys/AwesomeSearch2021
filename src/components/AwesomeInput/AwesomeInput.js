@@ -20,7 +20,7 @@ const awesomeInput = (props) => {
           <div className={classes.SearchResult}>
             <ul>
               {props.searchResult.length === 0 ? (
-                <span>Hey, input something :)</span>
+                <span>Please input something :)</span>
               ) : null}
               {props.searchResult.map((el, idx) => {
                 return (
