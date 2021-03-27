@@ -119,48 +119,41 @@ class AwesomeSearch extends Component {
   render() {
     return (
       <div className={classes.AwesomeSearch}>
-        <AwesomeInput
-          searchOnchange={this.searchInputOnChangeHandler}
-          value={this.state.search}
-          searchResult={this.state.searchResult}
-          searchInputOnFocus={this.searchInputOnFocusHandler}
-          showResult={this.state.showResult}
-        />
+        <div className="grid">
+          <div className="cell -12of12">
+            <AwesomeInput
+              searchOnchange={this.searchInputOnChangeHandler}
+              value={this.state.search}
+              searchResult={this.state.searchResult}
+              searchInputOnFocus={this.searchInputOnFocusHandler}
+              showResult={this.state.showResult}
+            />
 
-        <div
-          className={classes.BurgerButton}
-          onClick={this.burgerButtonClickHandler}
-        >
-          <FontAwesomeIcon icon={faBars} />
+            <div
+              className={classes.BurgerButton}
+              onClick={this.burgerButtonClickHandler}
+            >
+              <FontAwesomeIcon icon={faBars} />
+            </div>
+
+            <Route
+              path="/:user/:repo"
+              render={(props) => {
+                return (
+                  <button
+                    className={`btn btn-success btn-ghost ${classes.TocButton}`}
+                    style={{
+                      float: 'right',
+                    }}
+                    onClick={this.showTocHandler}
+                  >
+                    {this.state.showToc ? 'Close TOC' : 'Open TOC'}
+                  </button>
+                );
+              }}
+            />
+          </div>
         </div>
-
-        <Route
-          path="/:user/:repo"
-          render={(props) => {
-            return (
-              <button
-                className={`btn btn-success btn-ghost ${classes.TocButton}`}
-                style={{
-                  float: 'right',
-                }}
-                onClick={this.showTocHandler}
-              >
-                {this.state.showToc ? 'Close TOC' : 'Open TOC'}
-              </button>
-            );
-          }}
-        />
-
-        <iframe
-          src="https://ghbtns.com/github-btn.html?user=lockys&repo=AwesomeSearchReact&type=star&count=true"
-          frameBorder="0"
-          scrolling="0"
-          width="100px"
-          height="20px"
-          title="github"
-          style={{ float: 'right' }}
-          className={classes.StarButton}
-        ></iframe>
 
         {this.state.subjects ? (
           <div className="grid">
@@ -218,6 +211,7 @@ class AwesomeSearch extends Component {
                 </div>
               ) : null}
             </div>
+
             <Backdrop
               show={this.state.showResult}
               closeSeachModal={this.searchInputOnCloseHandler}
