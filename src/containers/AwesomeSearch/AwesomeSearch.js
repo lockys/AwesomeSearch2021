@@ -207,7 +207,14 @@ class AwesomeSearch extends Component {
 
               {this.state.showToc ? (
                 <div className={classes.ReadmeCategory}>
-                  <ReactMarkdown children={toc(this.state.md).content} />
+                  <ReactMarkdown
+                    children={
+                      toc(this.state.md, {
+                        firsth1: false,
+                        maxdepth: 3,
+                      }).content
+                    }
+                  />
                 </div>
               ) : null}
             </div>
