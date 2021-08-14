@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import classes from './AwesomeReadme.module.css';
-import HeadingRenderer from './MarkdownHelper/HeadingRenderer';
-import ReactMarkdown from 'react-markdown';
 import TimeAgo from 'timeago-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faClock } from '@fortawesome/free-solid-svg-icons';
 
-import gfm from 'remark-gfm';
 import axios from 'axios';
 class AwesomeReadme extends Component {
   state = {
@@ -36,7 +33,7 @@ class AwesomeReadme extends Component {
       )
       .then((res) => {
         this.setState({
-          _html: res.data,
+          _html: res.data.replace(/user-content-/g, ''),
           user: this.props.match.params.user,
           repo: this.props.match.params.repo,
         });
@@ -45,21 +42,21 @@ class AwesomeReadme extends Component {
         this.setState({ _html: `Error when loading repo ${err.message}` });
       });
 
-    // axios
-    //   .get(
-    //     `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}/readme`,
-    //     {
-    //       headers: {
-    //         Accept: 'application/vnd.github.v3.raw',
-    //       },
-    //     }
-    //   )
-    //   .then((res) => {
-    //     this.props.setMdHandler(res.data);
-    //   })
-    //   .catch((err) => {
-    //     this.setState({ _html: `Error when loading repo ${err.message}` });
-    //   });
+    axios
+      .get(
+        `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}/readme`,
+        {
+          headers: {
+            Accept: 'application/vnd.github.v3.raw',
+          },
+        }
+      )
+      .then((res) => {
+        this.props.setMdHandler(res.data);
+      })
+      .catch((err) => {
+        this.setState({ _html: `Error when loading repo ${err.message}` });
+      });
 
     axios
       .get(
