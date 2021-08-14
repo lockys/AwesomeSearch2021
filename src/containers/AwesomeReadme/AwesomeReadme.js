@@ -10,7 +10,7 @@ import gfm from 'remark-gfm';
 import axios from 'axios';
 class AwesomeReadme extends Component {
   state = {
-    md: `# Waiting for content loading...`,
+    _html: `<br/><b># Waiting for content loading...</b>`,
     stars: 0,
     updateAt: null,
     user: '',
@@ -27,23 +27,39 @@ class AwesomeReadme extends Component {
   componentDidMount() {
     axios
       .get(
-        `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}/readme`
+        `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}/readme`,
+        {
+          headers: {
+            Accept: 'application/vnd.github.v3.html',
+          },
+        }
       )
       .then((res) => {
-        return axios.get(res.data.download_url);
-      })
-      .then((res) => {
-        this.props.setMdHandler(res.data);
-
         this.setState({
-          md: res.data,
+          _html: res.data,
           user: this.props.match.params.user,
           repo: this.props.match.params.repo,
         });
       })
       .catch((err) => {
-        this.setState({ md: `Error when loading repo ${err.message}` });
+        this.setState({ _html: `Error when loading repo ${err.message}` });
       });
+
+    // axios
+    //   .get(
+    //     `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}/readme`,
+    //     {
+    //       headers: {
+    //         Accept: 'application/vnd.github.v3.raw',
+    //       },
+    //     }
+    //   )
+    //   .then((res) => {
+    //     this.props.setMdHandler(res.data);
+    //   })
+    //   .catch((err) => {
+    //     this.setState({ _html: `Error when loading repo ${err.message}` });
+    //   });
 
     axios
       .get(
@@ -75,12 +91,7 @@ class AwesomeReadme extends Component {
           </div>
         </div>
 
-        <ReactMarkdown
-          plugins={[gfm]}
-          children={this.state.md}
-          allowDangerousHtml
-          renderers={{ heading: HeadingRenderer }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: this.state._html }}></div>
       </div>
     );
   }

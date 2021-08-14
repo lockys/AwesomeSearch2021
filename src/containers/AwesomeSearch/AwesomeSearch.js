@@ -139,6 +139,8 @@ class AwesomeSearch extends Component {
             <Route
               path="/:user/:repo"
               render={(props) => {
+                return null;
+
                 return (
                   <button
                     className={`btn btn-success btn-ghost ${classes.TocButton}`}
@@ -205,12 +207,12 @@ class AwesomeSearch extends Component {
                 }}
               />
 
-              {this.state.showToc ? (
+              {false && this.state.showToc ? (
                 <div className={classes.ReadmeCategory}>
                   <ReactMarkdown
                     children={
                       toc(this.state.md, {
-                        firsth1: false,
+                        firsth1: true,
                         maxdepth: 3,
                       }).content
                     }
