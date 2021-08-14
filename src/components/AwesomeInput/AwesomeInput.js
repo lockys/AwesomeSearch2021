@@ -6,7 +6,7 @@ const awesomeInput = (props) => {
   return (
     <div className={classes.AwesomeInput}>
       <fieldset className="form-group">
-        <label htmlFor="subject">Awesome Search!</label>
+        <label htmlFor="subject">Awesome Search</label>
         <input
           id="subject"
           type="text"

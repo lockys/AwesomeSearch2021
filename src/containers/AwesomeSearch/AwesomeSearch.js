@@ -221,7 +221,7 @@ class AwesomeSearch extends Component {
 
             <Backdrop
               show={this.state.showResult}
-              closeSeachModal={this.searchInputOnCloseHandler}
+              closeSearchModal={this.searchInputOnCloseHandler}
             />
           </div>
         ) : (
