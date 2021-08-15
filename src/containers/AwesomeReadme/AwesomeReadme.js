@@ -95,7 +95,7 @@ class AwesomeReadme extends Component {
           <a
             href={`https://github.com/${this.props.match.params.user}/${this.props.match.params.repo}`}
           >
-            Go to original repository
+            View On Github
           </a>
           <div>
             <FontAwesomeIcon icon={faStar} /> stars:{this.state.stars}
