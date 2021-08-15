@@ -32,10 +32,28 @@ class AwesomeReadme extends Component {
         }
       )
       .then((res) => {
+        const user = this.props.match.params.user;
+        const repo = this.props.match.params.repo;
+        let githubImageUrl = `https://raw.githubusercontent.com/${user}/${repo}/master`;
+        let _html = res.data
+          .replace(
+            /<img [^>]*src=['"]([^'"]+)[^>]*>/gi,
+            function (match, capture) {
+              if (!capture.includes('https')) {
+                githubImageUrl =
+                  capture[0] === '/' ? githubImageUrl : githubImageUrl + '/';
+                return match.replace(capture, `${githubImageUrl}${capture}`);
+              } else {
+                return match;
+              }
+            }
+          )
+          .replace(/user-content-/g, '');
+
         this.setState({
-          _html: res.data.replace(/user-content-/g, ''),
-          user: this.props.match.params.user,
-          repo: this.props.match.params.repo,
+          _html: _html,
+          user: user,
+          repo: repo,
         });
       })
       .catch((err) => {

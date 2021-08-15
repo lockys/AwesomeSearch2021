@@ -210,7 +210,7 @@ class AwesomeSearch extends Component {
                   <ReactMarkdown
                     children={
                       toc(this.state.md, {
-                        firsth1: false,
+                        firsth1: true,
                         maxdepth: 3,
                       }).content
                     }
