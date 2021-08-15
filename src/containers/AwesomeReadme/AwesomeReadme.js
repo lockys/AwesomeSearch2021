@@ -60,21 +60,21 @@ class AwesomeReadme extends Component {
         this.setState({ _html: `Error when loading repo ${err.message}` });
       });
 
-    axios
-      .get(
-        `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}/readme`,
-        {
-          headers: {
-            Accept: 'application/vnd.github.v3.raw',
-          },
-        }
-      )
-      .then((res) => {
-        this.props.setMdHandler(res.data);
-      })
-      .catch((err) => {
-        this.setState({ _html: `Error when loading repo ${err.message}` });
-      });
+    // axios
+    //   .get(
+    //     `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}/readme`,
+    //     {
+    //       headers: {
+    //         Accept: 'application/vnd.github.v3.raw',
+    //       },
+    //     }
+    //   )
+    //   .then((res) => {
+    //     this.props.setMdHandler(res.data);
+    //   })
+    //   .catch((err) => {
+    //     this.setState({ _html: `Error when loading repo ${err.message}` });
+    //   });
 
     axios
       .get(
