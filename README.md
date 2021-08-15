@@ -1,6 +1,6 @@
-# Awesome Search (React ver.)
+# Awesome Search
 
-Please check out the link below to see the another version of Awesome Search.  
+Please check out the link below to see the new Awesome Search.  
 https://lockys.github.io/AwesomeSearchReact/
 
 This is a react verison of [Awesome Search](https://github.com/lockys/AwesomeSearch) allowing users to search awesome lists in one seconds.  
