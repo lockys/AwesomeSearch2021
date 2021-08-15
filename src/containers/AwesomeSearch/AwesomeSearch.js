@@ -139,6 +139,7 @@ class AwesomeSearch extends Component {
             <Route
               path="/:user/:repo"
               render={(props) => {
+                return null;
                 return (
                   <button
                     className={`btn btn-success btn-ghost ${classes.TocButton}`}
