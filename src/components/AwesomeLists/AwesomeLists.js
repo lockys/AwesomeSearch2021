@@ -12,15 +12,15 @@ const awesomeLists = ({ topic, subjects }) => {
 
         <p
           style={{
-            backgroundColor: 'grey',
+            backgroundColor: '#eee',
             padding: '5px',
-            color: 'white',
+            color: 'grey',
             textAlign: 'center',
           }}
         >
-          <span style={{ color: '#F8BBD0' }}>Awesome</span>
-          <span style={{ color: '#BBDEFB' }}>Search</span> makes you find what
-          you want in awesome lists more quickly.
+          <span style={{ color: 'red' }}>Awesome</span>
+          <span style={{ color: 'blue' }}>Search</span> makes you find what you
+          want in awesome lists more quickly.
         </p>
 
         <p>
