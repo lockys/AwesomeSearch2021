@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import classes from './AwesomeReadme.module.css';
 import TimeAgo from 'timeago-react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faClock } from '@fortawesome/free-solid-svg-icons';
-
+import {
+  faStar,
+  faClock,
+  faLongArrowAltUp,
+} from '@fortawesome/free-solid-svg-icons';
+import toc from 'markdown-toc-unlazy';
+import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 class AwesomeReadme extends Component {
   state = {
@@ -12,12 +17,16 @@ class AwesomeReadme extends Component {
     updateAt: null,
     user: '',
     repo: '',
+    md: '## loading',
+    showTOC: false,
   };
 
-  shouldComponentUpdate() {
+  shouldComponentUpdate(_, nextState) {
     return (
-      this.state.user !== this.props.match.params.user &&
-      this.state.repo !== this.props.match.params.repo
+      (this.state.user !== this.props.match.params.user &&
+        this.state.repo !== this.props.match.params.repo) ||
+      this.state.md !== nextState.md ||
+      this.state.showTOC !== nextState.showTOC
     );
   }
 
@@ -70,7 +79,7 @@ class AwesomeReadme extends Component {
     //     }
     //   )
     //   .then((res) => {
-    //     this.props.setMdHandler(res.data);
+    //     this.setState({ md: res.data });
     //   })
     //   .catch((err) => {
     //     this.setState({ _html: `Error when loading repo ${err.message}` });
@@ -88,9 +97,21 @@ class AwesomeReadme extends Component {
       });
   }
 
+  showTocHandler = () => {
+    this.setState({
+      showTOC: !this.state.showTOC,
+    });
+  };
+
+  scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   render() {
     return (
       <div className={classes.AwesomeReadme}>
+        <div id="anchor-top"></div>
+
         <div className={classes.ReadmeInfo}>
           <a
             href={`https://github.com/${this.props.match.params.user}/${this.props.match.params.repo}`}
@@ -99,6 +120,9 @@ class AwesomeReadme extends Component {
           >
             View On Github
           </a>
+          <span>
+            <strong>{this.props.match.params.repo}</strong>
+          </span>
           <div>
             <FontAwesomeIcon icon={faStar} /> stars:{this.state.stars}
           </div>
@@ -108,7 +132,25 @@ class AwesomeReadme extends Component {
           </div>
         </div>
 
+        {this.state.showTOC === true ? (
+          <div className={classes.ReadmeCategory}>
+            <ReactMarkdown
+              children={
+                toc(this.state.md, {
+                  firsth1: true,
+                  maxdepth: 3,
+                }).content
+              }
+            />
+          </div>
+        ) : null}
+
         <div dangerouslySetInnerHTML={{ __html: this.state._html }}></div>
+        <div className={classes.scrollToTop} onClick={this.scrollToTop}>
+          <a href="#anchor-top">
+            <FontAwesomeIcon icon={faLongArrowAltUp} /> Go To Top
+          </a>
+        </div>
       </div>
     );
   }

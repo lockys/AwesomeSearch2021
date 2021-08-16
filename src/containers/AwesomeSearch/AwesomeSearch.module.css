@@ -8,21 +8,6 @@
   overflow-y: auto;
 }
 
-.ReadmeCategory {
-  position: absolute;
-  right: 0;
-  top: 60px;
-  height: auto;
-  overflow: scroll;
-  background-color: white;
-  border-left: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #eee;
-  z-index: 50;
-  padding: 15px;
-  opacity: 0.9;
-}
-
 .BurgerButton {
   font-size: 20px;
   display: block;

@@ -9,8 +9,6 @@ import axios from 'axios';
 import Fuse from 'fuse.js';
 import { Route, withRouter } from 'react-router-dom';
 import Backdrop from '../../components/UI/Backdrop/Backdrop';
-import toc from 'markdown-toc-unlazy';
-import ReactMarkdown from 'react-markdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import classes from './AwesomeSearch.module.css';
@@ -24,7 +22,6 @@ class AwesomeSearch extends Component {
     search: '',
     searchResult: [],
     showResult: false,
-    showToc: false,
     showMenu: false,
     md: '',
   };
@@ -69,7 +66,7 @@ class AwesomeSearch extends Component {
   }
 
   topicOnClickHandler = (topic) => {
-    this.setState({ selectedSubject: topic, showToc: false, showMenu: false });
+    this.setState({ selectedSubject: topic, showMenu: false });
   };
 
   searchInputOnChangeHandler = (event) => {
@@ -94,12 +91,6 @@ class AwesomeSearch extends Component {
 
   searchInputOnCloseHandler = () => {
     this.setState({ showResult: false });
-  };
-
-  showTocHandler = () => {
-    this.setState((preState) => {
-      return { showToc: !preState.showToc };
-    });
   };
 
   setMdHandler = (md) => {
@@ -135,24 +126,6 @@ class AwesomeSearch extends Component {
             >
               <FontAwesomeIcon icon={faBars} />
             </div>
-
-            <Route
-              path="/:user/:repo"
-              render={(props) => {
-                return null;
-                return (
-                  <button
-                    className={`btn btn-success btn-ghost ${classes.TocButton}`}
-                    style={{
-                      float: 'right',
-                    }}
-                    onClick={this.showTocHandler}
-                  >
-                    {this.state.showToc ? 'Close TOC' : 'Open TOC'}
-                  </button>
-                );
-              }}
-            />
           </div>
         </div>
 
@@ -205,19 +178,6 @@ class AwesomeSearch extends Component {
                   );
                 }}
               />
-
-              {this.state.showToc ? (
-                <div className={classes.ReadmeCategory}>
-                  <ReactMarkdown
-                    children={
-                      toc(this.state.md, {
-                        firsth1: true,
-                        maxdepth: 3,
-                      }).content
-                    }
-                  />
-                </div>
-              ) : null}
             </div>
 
             <Backdrop
