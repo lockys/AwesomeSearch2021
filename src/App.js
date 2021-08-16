@@ -1,15 +1,15 @@
 import React from 'react';
 import AwesomeSearch from './containers/AwesomeSearch/AwesomeSearch';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="hack">
         <AwesomeSearch />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 export default App;
