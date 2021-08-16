@@ -97,6 +97,29 @@ class AwesomeReadme extends Component {
       });
   }
 
+  componentDidUpdate() {
+    const links = document.querySelectorAll('a:not(.menu-item)[href^="#"]');
+    if (links.length > 0) {
+      for (let link of links) {
+        let id = link.href.replace(`${document.location.origin}/#`, '');
+        link.href = `/#/${this.props.match.params.user}/${this.props.match.params.repo}`;
+        link.addEventListener('click', () => {
+          document.getElementById(id).scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+
+          document.getElementById(id).parentNode.style.backgroundColor = 'red';
+
+          setTimeout(() => {
+            document.getElementById(id).parentNode.style.backgroundColor =
+              'white';
+          }, 5000);
+        });
+      }
+    }
+  }
+
   showTocHandler = () => {
     this.setState({
       showTOC: !this.state.showTOC,
@@ -104,7 +127,7 @@ class AwesomeReadme extends Component {
   };
 
   scrollToTop = () => {
-    window.scrollTo(0, 0);
+    document.getElementById('anchor-top').scrollIntoView();
   };
 
   render() {
@@ -148,7 +171,7 @@ class AwesomeReadme extends Component {
 
         <div dangerouslySetInnerHTML={{ __html: this.state._html }}></div>
         <div className={classes.scrollToTop} onClick={this.scrollToTop}>
-          <a href="#anchor-top">
+          <a onClick={this.scrollToTop}>
             <FontAwesomeIcon icon={faLongArrowAltUp} /> Go To Top
           </a>
         </div>

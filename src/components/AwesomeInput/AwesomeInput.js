@@ -1,12 +1,23 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 import classes from './AwesomeInput.module.css';
 
 const awesomeInput = (props) => {
   return (
     <div className={classes.AwesomeInput}>
       <fieldset className="form-group">
-        <label htmlFor="subject">Awesome Search</label>
+        <label htmlFor="subject">
+          <FontAwesomeIcon
+            icon={faHome}
+            style={{ marginRight: '2px' }}
+            onClick={() => {
+              props.homeOnClick('');
+            }}
+          />
+          AwesomeSearch
+        </label>
         <input
           id="subject"
           type="text"
@@ -25,6 +36,7 @@ const awesomeInput = (props) => {
               {props.searchResult.map((el, idx) => {
                 return (
                   <li key={el.item.name + idx}>
+                    {el.item.cate}/
                     <Link to={`/${el.item.repo}`}>{el.item.name}</Link>
                   </li>
                 );

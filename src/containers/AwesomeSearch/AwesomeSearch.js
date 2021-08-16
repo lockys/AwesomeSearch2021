@@ -118,6 +118,7 @@ class AwesomeSearch extends Component {
               searchResult={this.state.searchResult}
               searchInputOnFocus={this.searchInputOnFocusHandler}
               showResult={this.state.showResult}
+              homeOnClick={this.topicOnClickHandler}
             />
 
             <div
@@ -126,12 +127,6 @@ class AwesomeSearch extends Component {
             >
               <FontAwesomeIcon icon={faBars} />
             </div>
-
-            <img
-              style={{ float: 'right' }}
-              src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg"
-              alt="awesome badge."
-            />
           </div>
         </div>
 
