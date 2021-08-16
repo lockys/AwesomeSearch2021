@@ -5,12 +5,11 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter basename="/AwesomeSearchReact">
+    <BrowserRouter>
       <div className="hack">
         <AwesomeSearch />
       </div>
     </BrowserRouter>
   );
 }
-
 export default App;
