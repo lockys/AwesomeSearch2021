@@ -114,6 +114,7 @@ class AwesomeReadme extends Component {
 
         <div className={classes.ReadmeInfo}>
           <a
+            className={classes.ViewOnGithubBtn}
             href={`https://github.com/${this.props.match.params.user}/${this.props.match.params.repo}`}
             target="_blank"
             rel="noreferrer"
