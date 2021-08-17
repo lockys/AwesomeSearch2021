@@ -162,7 +162,7 @@ const Homepage = () => {
               </a>
             </div>
             <div className="media-content">
-              Calvin Jeng is a software developer working for DBS(星展銀行),
+              Calvin Jeng is a software developer working for DBS - 星展銀行,
               previously a fullstack engineer at Garmin.
             </div>
           </div>
