@@ -4,7 +4,8 @@ const Homepage = () => {
   return (
     <div className={classes.HomePage}>
       <div className="alert alert-info">
-        New 2021 version of Awesome Search is released! Please play around it!
+        New 2021 version of Awesome Search is released! Please play around with
+        it!
       </div>
 
       <p
