@@ -31,9 +31,10 @@ a.ViewOnGithubBtn {
 
 .scrollToTop {
   position: fixed;
-  right: 5px;
-  bottom: 5px;
+  right: 10px;
+  bottom: 10px;
   cursor: pointer;
+  font-size: 1.2rem;
 }
 
 .scrollToTop:hover {

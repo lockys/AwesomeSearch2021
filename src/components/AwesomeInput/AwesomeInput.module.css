@@ -16,3 +16,13 @@
   box-sizing: border-box;
   overflow: hidden;
 }
+
+.HomeIcon {
+  margin-right: 2px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.HomeIcon:hover {
+  color: red;
+}

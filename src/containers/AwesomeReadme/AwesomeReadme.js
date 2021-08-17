@@ -112,8 +112,10 @@ class AwesomeReadme extends Component {
           document.getElementById(id).parentNode.style.backgroundColor = 'red';
 
           setTimeout(() => {
-            document.getElementById(id).parentNode.style.backgroundColor =
-              'white';
+            if (document.getElementById(id)) {
+              document.getElementById(id).parentNode.style.backgroundColor =
+                'white';
+            }
           }, 5000);
         });
       }
@@ -171,9 +173,7 @@ class AwesomeReadme extends Component {
 
         <div dangerouslySetInnerHTML={{ __html: this.state._html }}></div>
         <div className={classes.scrollToTop} onClick={this.scrollToTop}>
-          <a onClick={this.scrollToTop}>
-            <FontAwesomeIcon icon={faLongArrowAltUp} /> Go To Top
-          </a>
+          <FontAwesomeIcon icon={faLongArrowAltUp} /> Go To Top
         </div>
       </div>
     );

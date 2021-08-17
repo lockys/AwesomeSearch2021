@@ -11,8 +11,9 @@ const awesomeInput = (props) => {
         <label htmlFor="subject">
           <FontAwesomeIcon
             icon={faHome}
-            style={{ marginRight: '2px' }}
+            className={classes.HomeIcon}
             onClick={() => {
+              props.history.push('/');
               props.homeOnClick('');
             }}
           />
