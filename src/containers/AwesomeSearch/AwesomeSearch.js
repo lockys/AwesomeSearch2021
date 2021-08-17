@@ -103,6 +103,7 @@ class AwesomeSearch extends Component {
     this.setState((prevState) => {
       return {
         showMenu: !prevState.showMenu,
+        showResult: false,
       };
     });
   };

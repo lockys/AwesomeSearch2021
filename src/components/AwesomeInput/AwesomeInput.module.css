@@ -17,6 +17,16 @@
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .AwesomeInput {
+    width: 100%;
+  }
+
+  .SearchResult {
+    width: 100%;
+  }
+}
+
 .HomeIcon {
   margin-right: 2px;
   cursor: pointer;

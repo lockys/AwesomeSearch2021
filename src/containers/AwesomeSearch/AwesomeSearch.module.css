@@ -11,9 +11,12 @@
 .BurgerButton {
   font-size: 20px;
   display: block;
-  float: right;
+  position: fixed;
+  right: 10px;
+  top: 10px;
   cursor: pointer;
   margin: 5px;
+  z-index: 999;
 }
 
 @media (max-width: 768px) {
