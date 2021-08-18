@@ -80,7 +80,7 @@ const Homepage = () => {
         </a>
         ,{' '}
         <a
-          href="https://github.com/sindresorhus/awesome"
+          href="https://github.com/egoist/hack"
           rel="noreferrer"
           target="_blank"
         >
