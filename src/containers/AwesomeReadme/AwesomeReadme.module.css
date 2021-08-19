@@ -18,15 +18,37 @@ a.ViewOnGithubBtn {
   opacity: 0.9;
 }
 
+.TOCButton {
+  cursor: pointer;
+  color: #ff2e88;
+}
+
 .ReadmeCategory {
-  position: sticky;
-  top: 10px;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  max-height: 400px;
   overflow: scroll;
   background-color: white;
   border: 1px solid #eee;
   z-index: 50;
   padding: 15px;
-  opacity: 0.9;
+}
+
+.ReadmeCategoryCloseButton {
+  cursor: pointer;
+  font-size: 1.5rem;
+  position: sticky;
+  top: 0;
+}
+
+.ReadmeCategory > div {
+  cursor: pointer;
+  color: #ff2e88;
+}
+
+.ReadmeCategory > div:hover {
+  text-decoration: underline;
 }
 
 .scrollToTop {

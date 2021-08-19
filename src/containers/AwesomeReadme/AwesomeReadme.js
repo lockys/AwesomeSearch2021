@@ -6,18 +6,17 @@ import {
   faStar,
   faClock,
   faLongArrowAltUp,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import toc from 'markdown-toc-unlazy';
-import ReactMarkdown from 'react-markdown';
 import axios from 'axios';
 class AwesomeReadme extends Component {
   state = {
     _html: `<br/><b># Waiting for content loading...</b>`,
+    headers: [],
     stars: 0,
     updateAt: null,
     user: '',
     repo: '',
-    md: '## loading',
     showTOC: false,
   };
 
@@ -25,7 +24,8 @@ class AwesomeReadme extends Component {
     return (
       (this.state.user !== this.props.match.params.user &&
         this.state.repo !== this.props.match.params.repo) ||
-      this.state.md !== nextState.md ||
+      this.state._html !== nextState._html ||
+      this.state.headers.length !== nextState.headers.length ||
       this.state.showTOC !== nextState.showTOC
     );
   }
@@ -69,22 +69,6 @@ class AwesomeReadme extends Component {
         this.setState({ _html: `Error when loading repo ${err.message}` });
       });
 
-    // axios
-    //   .get(
-    //     `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}/readme`,
-    //     {
-    //       headers: {
-    //         Accept: 'application/vnd.github.v3.raw',
-    //       },
-    //     }
-    //   )
-    //   .then((res) => {
-    //     this.setState({ md: res.data });
-    //   })
-    //   .catch((err) => {
-    //     this.setState({ _html: `Error when loading repo ${err.message}` });
-    //   });
-
     axios
       .get(
         `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}`
@@ -98,29 +82,49 @@ class AwesomeReadme extends Component {
   }
 
   componentDidUpdate() {
+    this.makeAnchor();
+    if (document.body.childNodes.length) {
+      const headers = this.walk(document.body.childNodes, []);
+      if (this.state.headers.length === 0 && headers.length !== 0) {
+        this.setState({
+          headers: headers,
+        });
+      }
+    }
+  }
+
+  makeAnchor = () => {
     const links = document.querySelectorAll('a:not(.menu-item)[href^="#"]');
+
     if (links.length > 0) {
       for (let link of links) {
         let id = link.href.replace(`${document.location.origin}/#`, '');
         link.href = `/#/${this.props.match.params.user}/${this.props.match.params.repo}`;
         link.addEventListener('click', () => {
-          document.getElementById(id).scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-          });
-
-          document.getElementById(id).parentNode.style.backgroundColor = 'red';
-
-          setTimeout(() => {
-            if (document.getElementById(id)) {
-              document.getElementById(id).parentNode.style.backgroundColor =
-                'white';
-            }
-          }, 5000);
+          this.headersOnClick(id);
         });
       }
     }
-  }
+  };
+
+  walk = (nodes, headers) => {
+    nodes.forEach((node) => {
+      let sub = Array.from(node.childNodes);
+      if (sub.length) {
+        headers = this.walk(sub, headers);
+      }
+
+      if (/h[2-6]/i.test(node.tagName)) {
+        headers.push({
+          id: node.childNodes[0].getAttribute('id'),
+          level: parseInt(node.tagName.replace('H', '')),
+          title: node.innerText.trim(),
+        });
+      }
+    });
+
+    return headers;
+  };
 
   showTocHandler = () => {
     this.setState({
@@ -130,6 +134,25 @@ class AwesomeReadme extends Component {
 
   scrollToTop = () => {
     document.getElementById('anchor-top').scrollIntoView();
+  };
+
+  headersOnClick = (id) => {
+    document.getElementById(id).scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+    });
+
+    document.getElementById(id).parentNode.style.backgroundColor = '#eee';
+
+    setTimeout(() => {
+      if (document.getElementById(id)) {
+        document.getElementById(id).parentNode.style.backgroundColor = 'white';
+      }
+    }, 5000);
+
+    this.setState({
+      showTOC: false,
+    });
   };
 
   render() {
@@ -146,6 +169,9 @@ class AwesomeReadme extends Component {
           >
             View On Github
           </a>
+          <span className={classes.TOCButton} onClick={this.showTocHandler}>
+            Content
+          </span>
           <span>
             <strong>{this.props.match.params.repo}</strong>
           </span>
@@ -156,20 +182,29 @@ class AwesomeReadme extends Component {
             <FontAwesomeIcon icon={faClock} /> Last update at{' '}
             <TimeAgo datetime={this.state.updateAt} />
           </div>
-        </div>
 
-        {this.state.showTOC === true ? (
-          <div className={classes.ReadmeCategory}>
-            <ReactMarkdown
-              children={
-                toc(this.state.md, {
-                  firsth1: true,
-                  maxdepth: 3,
-                }).content
-              }
-            />
-          </div>
-        ) : null}
+          {this.state.showTOC && (
+            <div className={classes.ReadmeCategory}>
+              <FontAwesomeIcon
+                onClick={this.showTocHandler}
+                className={classes.ReadmeCategoryCloseButton}
+                icon={faTimes}
+              />
+              {this.state.headers.map((header, idx) => {
+                return (
+                  <div
+                    key={idx}
+                    onClick={() => {
+                      this.headersOnClick(header.id);
+                    }}
+                  >
+                    {header.title}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
 
         <div dangerouslySetInnerHTML={{ __html: this.state._html }}></div>
         <div className={classes.scrollToTop} onClick={this.scrollToTop}>
