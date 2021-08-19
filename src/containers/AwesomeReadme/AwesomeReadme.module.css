@@ -40,6 +40,11 @@ a.ViewOnGithubBtn {
   font-size: 1.5rem;
   position: sticky;
   top: 0;
+  color: grey;
+}
+
+.ReadmeCategoryCloseButton :hover {
+  color: #ff2e88;
 }
 
 .ReadmeCategory > div {
