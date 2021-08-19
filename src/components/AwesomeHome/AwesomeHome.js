@@ -36,21 +36,21 @@ const Homepage = () => {
 
       <h1>Why we did this</h1>
       <section>
-        There are soooo many awesome lists in the Awesome lists. <br />
-        We hope to build a web application to access them more quickly .
+        There are soooo many awesome lists in the sindresorhus/awesome. <br />
+        We hope to build a web application to access them more quickly.
       </section>
 
       <h1>Features</h1>
       <ul>
         <li>
-          Access and search every awesome repo listed in{' '}
+          Access and search every awesome list listed in{' '}
           <a href="https://github.com/sindresorhus/awesome">
             sindresorhus/awesome
           </a>{' '}
           inside of a single page without pain.
         </li>
         <li>
-          Access an awesome repo by{' '}
+          Access an awesome list by{' '}
           <a href="https://dev.awesomelists.top/#/sindresorhus/awesome-nodejs">
             https://dev.awesomelists.top/#/sindresorhus/awesome-nodejs
           </a>
@@ -58,10 +58,10 @@ const Homepage = () => {
         </li>
         <li>
           Navigate smoothly to what you want to see using "Table of content" if
-          that repo has toc.
+          that list has toc.
         </li>
       </ul>
-      <h1>Get started with a repo</h1>
+      <h1>Get started with a list</h1>
       <section>
         Check out -{' '}
         <a href="https://dev.awesomelists.top/#/sindresorhus/awesome-nodejs">

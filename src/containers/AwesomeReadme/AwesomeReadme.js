@@ -45,18 +45,15 @@ class AwesomeReadme extends Component {
         const repo = this.props.match.params.repo;
         let githubImageUrl = `https://raw.githubusercontent.com/${user}/${repo}/master`;
         let _html = res.data
-          .replace(
-            /<img [^>]*src=['"]([^'"]+)[^>]*>/gi,
-            function (match, capture) {
-              if (!capture.includes('https')) {
-                githubImageUrl =
-                  capture[0] === '/' ? githubImageUrl : githubImageUrl + '/';
-                return match.replace(capture, `${githubImageUrl}${capture}`);
-              } else {
-                return match;
-              }
+          .replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, (match, capture) => {
+            if (!capture.includes('https')) {
+              githubImageUrl =
+                capture[0] === '/' ? githubImageUrl : githubImageUrl + '/';
+              return match.replace(capture, `${githubImageUrl}${capture}`);
+            } else {
+              return match;
             }
-          )
+          })
           .replace(/user-content-/g, '');
 
         this.setState({
@@ -155,6 +152,10 @@ class AwesomeReadme extends Component {
     });
   };
 
+  buildBullet = (pattern, level) => {
+    return Array(level).fill(pattern).join('');
+  };
+
   render() {
     return (
       <div className={classes.AwesomeReadme}>
@@ -198,7 +199,7 @@ class AwesomeReadme extends Component {
                       this.headersOnClick(header.id);
                     }}
                   >
-                    {header.title}
+                    {this.buildBullet('-', header.level)} {header.title}
                   </div>
                 );
               })}
