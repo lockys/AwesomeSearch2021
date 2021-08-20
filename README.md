@@ -13,13 +13,9 @@ This is a react verison of [Awesome Search](https://github.com/lockys/AwesomeSea
 - The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!  
 - Thanks [bashooka](http://bashooka.com/coding/35-best-css-tools-for-2017/) for recommendation.
 
-### Support our works
-Buy me a coffee if you are willing to. :), I will add your link to the supporter section. Big thanks!  
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UVV57KZ6F6S34)
-
 Why
 ==
-In a nutshell, there are many awesome lists in the Awesome :)    
+In a nutshell, there are many awesome lists in the sindresorhus/awesome.
 We hope to build an application to access them more quickly.  
 That's why "Awesome Search" was born. :octocat:
 
@@ -31,17 +27,13 @@ Features
 
 Supported awesome lists
 ==
-You can see the JSON format of links [here](https://github.com/lockys/Awesome.json/blob/master/awesome/awesome.json).(Contribution is welcome)
-[awesome.json](https://github.com/lockys/awesome.json) is the place where the data store for now.
+You can see the JSON format of links [here](https://github.com/lockys/Awesome.json/blob/master/awesome/awesome.json).
+[awesome.json](https://github.com/lockys/awesome.json) file is the place where the data stores for now.
 
 Authors
 ==
 - [lockys](https://github.com/lockys)
 - [John-Lin](https://github.com/John-Lin)
-
-Contributors
-==
-Thank you, [contributors](https://github.com/lockys/awesome-search/graphs/contributors)
 
 Contributions
 ==

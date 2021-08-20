@@ -4,10 +4,9 @@ const Homepage = () => {
   return (
     <div className={classes.HomePage}>
       <div className="alert alert-info">
-        New 2021 version of Awesome Search is released! Please play around with
-        it!
+        🔥🔥 New 2021 version of Awesome Search is released! Please play around
+        with it! 🔥🔥
       </div>
-
       <p
         style={{
           backgroundColor: '#eee',
@@ -27,9 +26,16 @@ const Homepage = () => {
           rel="noreferrer"
           target="_blank"
         >
+          <img src="https://awesome.re/badge-flat2.svg" alt="awesome badge." />
+        </a>{' '}
+        <a
+          href="https://github.com/lockys/NewAwesomeSearch"
+          rel="noreferrer"
+          target="_blank"
+        >
           <img
-            src="https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg"
-            alt="awesome badge."
+            src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square"
+            alt="PR is welcome"
           />
         </a>
       </section>
@@ -39,7 +45,6 @@ const Homepage = () => {
         There are soooo many awesome lists in the sindresorhus/awesome. <br />
         We hope to build a web application to access them more quickly.
       </section>
-
       <h1>Features</h1>
       <ul>
         <li>
@@ -90,9 +95,7 @@ const Homepage = () => {
       </section>
       <hr />
       <section>
-        <a href="https://github.com/lockys/AwesomeSearchReact">
-          Awesome search
-        </a>{' '}
+        <a href="https://github.com/lockys/NewAwesomeSearch">Awesome search</a>{' '}
         is built with love by:
         <br />
         <br />
