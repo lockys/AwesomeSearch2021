@@ -23,7 +23,6 @@ class AwesomeSearch extends Component {
     searchResult: [],
     showResult: false,
     showMenu: false,
-    md: '',
   };
 
   getSubjectEntries = () => {
@@ -85,7 +84,6 @@ class AwesomeSearch extends Component {
   };
 
   searchInputOnFocusHandler = () => {
-    // this.props.history.push('/');
     this.setState({ showResult: true });
   };
 
