@@ -187,7 +187,7 @@ class AwesomeReadme extends Component {
         headers = this.walk(sub, headers);
       }
 
-      if (/h[1-6]/i.test(node.tagName)) {
+      if (/h[1-6]/i.test(node.tagName) && node.innerText.trim() !== '') {
         headers.push({
           id: node.childNodes[0].getAttribute('id'),
           level: parseInt(node.tagName.replace('H', '')),
