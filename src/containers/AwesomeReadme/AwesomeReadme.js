@@ -31,50 +31,110 @@ class AwesomeReadme extends Component {
   }
 
   componentDidMount() {
+    const user = this.props.match.params.user;
+    const repo = this.props.match.params.repo;
+    const lastMod = JSON.parse(localStorage.getItem('lastMod'));
+    const infoLastMod = JSON.parse(localStorage.getItem('infoLastMod'));
+
     axios
-      .get(
-        `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}/readme`,
-        {
-          headers: {
-            Accept: 'application/vnd.github.v3.html',
-          },
-        }
-      )
+      .get(`https://api.github.com/repos/${user}/${repo}/readme`, {
+        headers: {
+          Accept: 'application/vnd.github.v3.html',
+          'If-Modified-Since': lastMod ? lastMod[`${user}/${repo}`] : null,
+          Authorization: 'fakeString',
+        },
+      })
       .then((res) => {
-        const user = this.props.match.params.user;
-        const repo = this.props.match.params.repo;
-        let githubImageUrl = `https://raw.githubusercontent.com/${user}/${repo}/master`;
-        let _html = res.data
-          .replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, (match, capture) => {
-            if (!capture.includes('https')) {
-              githubImageUrl =
-                capture[0] === '/' ? githubImageUrl : githubImageUrl + '/';
-              return match.replace(capture, `${githubImageUrl}${capture}`);
-            } else {
-              return match;
-            }
+        localStorage.setItem(
+          'lastMod',
+          JSON.stringify({
+            ...JSON.parse(localStorage.getItem('lastMod')),
+            [`${user}/${repo}`]: res.headers['last-modified'],
           })
-          .replace(/user-content-/g, '');
+        );
+
+        let _html = this.fixImage({
+          user,
+          repo,
+          res,
+        });
 
         this.setState({
           _html: _html,
           user: user,
           repo: repo,
         });
+
+        localStorage.setItem(
+          '_html',
+          JSON.stringify({
+            ...JSON.parse(localStorage.getItem('_html')),
+            [`${user}/${repo}`]: _html,
+          })
+        );
       })
       .catch((err) => {
-        this.setState({ _html: `Error when loading repo ${err.message}` });
+        switch (err.response.status) {
+          case 304:
+            this.setState({
+              _html: JSON.parse(localStorage.getItem('_html'))[
+                `${user}/${repo}`
+              ],
+            });
+            break;
+          case 403:
+            this.setState({
+              _html: `<br/><b># Github API rate limit exceeds...</b>`,
+            });
+            break;
+          default:
+            this.setState({
+              _html: `<br/><b># Failed to load readme file with ${err.message}</b>`,
+            });
+            break;
+        }
       });
 
     axios
-      .get(
-        `https://api.github.com/repos/${this.props.match.params.user}/${this.props.match.params.repo}`
-      )
+      .get(`https://api.github.com/repos/${user}/${repo}`, {
+        headers: {
+          'If-Modified-Since': infoLastMod
+            ? infoLastMod[`${user}/${repo}`]
+            : null,
+          Authorization: 'fakeString',
+        },
+      })
       .then((res) => {
+        localStorage.setItem(
+          'infoLastMod',
+          JSON.stringify({
+            ...JSON.parse(localStorage.getItem('infoLastMod')),
+            [`${user}/${repo}`]: res.headers['last-modified'],
+          })
+        );
+
         this.setState({
           stars: res.data.stargazers_count,
           updateAt: res.data.pushed_at,
         });
+
+        localStorage.setItem(
+          'repoInfo',
+          JSON.stringify({
+            ...JSON.parse(localStorage.getItem('repoInfo')),
+            [`${user}/${repo}`]: {
+              stars: res.data.stargazers_count,
+              updateAt: res.data.pushed_at,
+            },
+          })
+        );
+      })
+      .catch((err) => {
+        if (err.response.status === 304) {
+          this.setState(
+            JSON.parse(localStorage.getItem('repoInfo'))[`${user}/${repo}`]
+          );
+        }
       });
   }
 
@@ -89,6 +149,22 @@ class AwesomeReadme extends Component {
       }
     }
   }
+
+  fixImage = ({ user, repo, res }) => {
+    let githubImageUrl = `https://raw.githubusercontent.com/${user}/${repo}/master`;
+    const _html = res.data
+      .replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, (match, capture) => {
+        if (!capture.includes('https')) {
+          githubImageUrl =
+            capture[0] === '/' ? githubImageUrl : githubImageUrl + '/';
+          return match.replace(capture, `${githubImageUrl}${capture}`);
+        } else {
+          return match;
+        }
+      })
+      .replace(/user-content-/g, '');
+    return _html;
+  };
 
   makeAnchor = () => {
     const links = document.querySelectorAll('a:not(.menu-item)[href^="#"]');
@@ -111,7 +187,7 @@ class AwesomeReadme extends Component {
         headers = this.walk(sub, headers);
       }
 
-      if (/h[2-6]/i.test(node.tagName)) {
+      if (/h[1-6]/i.test(node.tagName)) {
         headers.push({
           id: node.childNodes[0].getAttribute('id'),
           level: parseInt(node.tagName.replace('H', '')),

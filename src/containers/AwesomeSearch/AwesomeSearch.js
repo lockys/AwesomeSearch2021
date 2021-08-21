@@ -128,6 +128,30 @@ class AwesomeSearch extends Component {
             >
               <FontAwesomeIcon icon={faBars} />
             </div>
+
+            <div
+              className="btn-group"
+              style={{ float: 'right', display: 'none' }}
+            >
+              <button
+                className="btn btn-default"
+                onClick={() => {
+                  localStorage.setItem('isDark', true);
+                  this.props.onThemeChange(true);
+                }}
+              >
+                Dark
+              </button>
+              <button
+                className="btn btn-success"
+                onClick={() => {
+                  localStorage.setItem('isDark', false);
+                  this.props.onThemeChange(false);
+                }}
+              >
+                Light
+              </button>
+            </div>
           </div>
         </div>
 
