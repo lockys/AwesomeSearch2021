@@ -1,12 +1,9 @@
-# Awesome Search React
+# Awesome Search
 
 Please check out the link below to see the new Awesome Search.  
 https://dev.awesomelists.top
 
-This is a react verison of [Awesome Search](https://github.com/lockys/AwesomeSearch)  
-
-### Make some suggestions
-[![Join the chat at https://gitter.im/lockys/AwesomeSearch](https://badges.gitter.im/lockys/AwesomeSearch.svg)](https://gitter.im/lockys/AwesomeSearch?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)  
+This is an new verison of [Awesome Search](https://github.com/lockys/AwesomeSearch)   
 
 ### kudos
 - [John-Lin](https://github.com/John-Lin)'s powerful support.
@@ -17,7 +14,7 @@ Why
 ==
 In a nutshell, there are many awesome lists in the sindresorhus/awesome.
 We hope to build an application to access them more quickly.  
-That's why "Awesome Search" was born. :octocat:
+That's why "Awesome Search" was born.
 
 Features
 ==
@@ -27,8 +24,8 @@ Features
 
 Supported awesome lists
 ==
-You can see the JSON format of links [here](https://github.com/lockys/Awesome.json/blob/master/awesome/awesome.json).
-[awesome.json](https://github.com/lockys/awesome.json) file is the place where the data stores for now.
+You can see the JSON format of sindresorhus/awesome in [here](https://github.com/lockys/Awesome.json/blob/master/awesome/awesome.json).
+[awesome.json](https://github.com/lockys/awesome.json) file is the place where our data stores for now.
 
 Authors
 ==
@@ -37,9 +34,8 @@ Authors
 
 Contributions
 ==
-Welcome to contribute :)  
-Please refer to [contribution.md](contribution.md)    
-Filing a issue to make suggestions or complain anything is always welcome.
+PRs are always welcome. :)  
+Also, Filing a issue to make suggestions or complain anything is always welcome.
 
 Related Projects
 ==
