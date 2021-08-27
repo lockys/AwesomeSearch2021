@@ -1,11 +1,12 @@
-# Awesome Search
-
-Please check out the link below to see the new Awesome Search.  
+Awesome Search
+=
+[![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)  
 https://dev.awesomelists.top
 
 This is an new verison of [Awesome Search](https://github.com/lockys/AwesomeSearch)   
 
-### kudos
+Kudos
+==
 - [John-Lin](https://github.com/John-Lin)'s powerful support.
 - The original domain name `http://awesomelists.me/` is provided by [@aleksandar-todorovic](https://github.com/aleksandar-todorovic), thanks!  
 - Thanks [bashooka](http://bashooka.com/coding/35-best-css-tools-for-2017/) for recommendation.
