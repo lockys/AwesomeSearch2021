@@ -91,7 +91,7 @@ class AwesomeReadme extends Component {
                         <li>Now, we are using github API whose rate limit is 60 requests/hr per IP to retrieve readme content.</li>
                         <li>We'll figure out a way to resolve this issue recently :)</li>
                       </ol> 
-                      <div style="width:100%;height:0;padding-bottom:54%;position:relative;"><iframe src="https://giphy.com/embed/7J4P7cUur2DlErijp3" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/manny-manny404-mannynotfound-7J4P7cUur2DlErijp3">via GIPHY</a></p>
+                      <div style="width:100%;height:0;padding-bottom:53%;position:relative;"><iframe src="https://giphy.com/embed/zyclIRxMwlY40" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/fire-richard-ayoade-the-it-crowd-zyclIRxMwlY40">via GIPHY</a></p>
                       `,
               showReadmeInfo: false,
             });
@@ -104,7 +104,7 @@ class AwesomeReadme extends Component {
                         <li> The repo you are looking for does not exist. Please click the home icon on the top left to back to home page.</li>
                         <li> Sorry, you may access us from old Awesome Search...Please re-search this repo and bookmark it.</li>
                       </ol> 
-                      <div style="width:100%;height:0;padding-bottom:54%;position:relative;"><iframe src="https://giphy.com/embed/7J4P7cUur2DlErijp3" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/manny-manny404-mannynotfound-7J4P7cUur2DlErijp3">via GIPHY</a></p>
+                      <div style="width:100%;height:0;padding-bottom:53%;position:relative;"><iframe src="https://giphy.com/embed/zyclIRxMwlY40" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/fire-richard-ayoade-the-it-crowd-zyclIRxMwlY40">via GIPHY</a></p>
                       `,
               showReadmeInfo: false,
             });
