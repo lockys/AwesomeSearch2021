@@ -1,8 +1,8 @@
 Awesome Search
 =
 [![Awesome](https://awesome.re/badge-flat.svg)](https://awesome.re)  
-https://dev.awesomelists.top  
-This is an new verison of [Awesome Search](https://github.com/lockys/AwesomeSearch)   
+https://awesomelists.top
+This is an new version of [Awesome Search](https://github.com/lockys/AwesomeSearch)   
 
 Kudos
 ==
