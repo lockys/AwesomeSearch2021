@@ -98,7 +98,7 @@ class AwesomeReadme extends Component {
             break;
           default:
             this.setState({
-              _html: `<br/><b># Failed to load readme file with ${err.message}</b><br/>.
+              _html: `<br/><b># Failed to load readme file with ${err.message}.</b><br/><br/>
                       # How to resolve?
                       <ol>
                         <li> The repo you are looking for does not exist. Please click the home icon on the top left to back to home page.</li>
