@@ -34,26 +34,11 @@ class AwesomeReadme extends Component {
   componentDidMount() {
     const user = this.props.match.params.user;
     const repo = this.props.match.params.repo;
-    const lastMod = JSON.parse(localStorage.getItem('lastMod'));
     const infoLastMod = JSON.parse(localStorage.getItem('infoLastMod'));
 
     axios
-      .get(`https://api.github.com/repos/${user}/${repo}/readme`, {
-        headers: {
-          Accept: 'application/vnd.github.v3.html',
-          'If-Modified-Since': lastMod ? lastMod[`${user}/${repo}`] : null,
-          Authorization: 'fakeString',
-        },
-      })
+      .get(`https://awesome-search.herokuapp.com/readme/${user}/${repo}`)
       .then((res) => {
-        localStorage.setItem(
-          'lastMod',
-          JSON.stringify({
-            ...JSON.parse(localStorage.getItem('lastMod')),
-            [`${user}/${repo}`]: res.headers['last-modified'],
-          })
-        );
-
         let _html = this.fixImage({
           user,
           repo,
@@ -66,24 +51,9 @@ class AwesomeReadme extends Component {
           repo: repo,
           showReadmeInfo: true,
         });
-
-        localStorage.setItem(
-          '_html',
-          JSON.stringify({
-            ...JSON.parse(localStorage.getItem('_html')),
-            [`${user}/${repo}`]: _html,
-          })
-        );
       })
       .catch((err) => {
         switch (err.response.status) {
-          case 304:
-            this.setState({
-              _html: JSON.parse(localStorage.getItem('_html'))[
-                `${user}/${repo}`
-              ],
-            });
-            break;
           case 403:
             this.setState({
               _html: `<br/><b># Github API rate limit exceeds...</b>
