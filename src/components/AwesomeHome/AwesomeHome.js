@@ -3,10 +3,6 @@ import classes from './AwesomeHome.module.css';
 const Homepage = () => {
   return (
     <div className={classes.HomePage}>
-      <div className='alert alert-info'>
-        🔥🔥 New 2021 version of Awesome Search is released! Please play around
-        with it! 🔥🔥
-      </div>
       <div className='alert alert-success'>
         If you prefer old Awesome Search, please refer to{' '}
         <a href='https://legacy.awesomelists.top/#/'>old Awesome Search</a>
