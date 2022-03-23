@@ -56,8 +56,8 @@ const Homepage = () => {
         </li>
         <li>
           Access an awesome list by{' '}
-          <a href='https://dev.awesomelists.top/#/sindresorhus/awesome-nodejs'>
-            https://dev.awesomelists.top/#/sindresorhus/awesome-nodejs
+          <a href='https://awesomelists.top/#/sindresorhus/awesome-nodejs'>
+            https://awesomelists.top/#/sindresorhus/awesome-nodejs
           </a>
           .(you can bookmark your favorite one!)
         </li>
