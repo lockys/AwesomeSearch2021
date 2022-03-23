@@ -69,7 +69,7 @@ const Homepage = () => {
       <h1>Get Started With a List</h1>
       <section>
         Check out -{' '}
-        <a href='https://dev.awesomelists.top/#/sindresorhus/awesome-nodejs'>
+        <a href='https://awesomelists.top/#/sindresorhus/awesome-nodejs'>
           Awesome Node.js
         </a>
         !
@@ -96,7 +96,7 @@ const Homepage = () => {
       <hr />
       <section>
         <a href='https://github.com/lockys/NewAwesomeSearch'>Awesome search</a>{' '}
-        is built with love by:
+        is built by:
         <br />
         <br />
         <div className='media'>
