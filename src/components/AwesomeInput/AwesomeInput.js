@@ -7,12 +7,13 @@ import classes from './AwesomeInput.module.css';
 const awesomeInput = (props) => {
   return (
     <div className={classes.AwesomeInput}>
-      <fieldset className="form-group">
-        <label htmlFor="subject">
+      <fieldset className='form-group'>
+        <label htmlFor='subject'>
           <FontAwesomeIcon
             icon={faHome}
             className={classes.HomeIcon}
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               props.history.push('/');
               props.homeOnClick('');
             }}
@@ -21,10 +22,10 @@ const awesomeInput = (props) => {
           <span style={{ color: 'blue' }}>Search</span>
         </label>
         <input
-          id="subject"
-          type="text"
-          placeholder="Try To Search Node.js"
-          className="form-control"
+          id='subject'
+          type='text'
+          placeholder='Try To Search Node.js'
+          className='form-control'
           onChange={props.searchOnchange}
           value={props.value}
           onFocus={props.searchInputOnFocus}

@@ -4,8 +4,8 @@ const Homepage = () => {
   return (
     <div className={classes.HomePage}>
       <div className='alert alert-success'>
-        If you prefer old Awesome Search, please refer to{' '}
-        <a href='https://legacy.awesomelists.top/#/'>old Awesome Search</a>
+        👉 If you prefer old awesome search, please refer to{' '}
+        <a href='https://legacy.awesomelists.top/#/'>old awesome search</a>
       </div>
       <p
         style={{
@@ -42,7 +42,7 @@ const Homepage = () => {
 
       <h1>Why We Did This</h1>
       <section>
-        There are soooo many awesome lists in the sindresorhus/awesome. <br />
+        There are so many awesome lists in the 🕶 sindresorhus/awesome. <br />
         We hope to build a web application to access them more quickly.
       </section>
       <h1>Features</h1>
@@ -59,11 +59,11 @@ const Homepage = () => {
           <a href='https://awesomelists.top/#/sindresorhus/awesome-nodejs'>
             https://awesomelists.top/#/sindresorhus/awesome-nodejs
           </a>
-          .(you can bookmark your favorite one!)
+          .(you can bookmark your favorites!)
         </li>
         <li>
-          Navigate smoothly to what you want to see using "Table of content" if
-          that list has toc.
+          Navigate smoothly to what you want to see using "content" if that list
+          has table of content.
         </li>
       </ul>
       <h1>Get Started With a List</h1>
@@ -95,7 +95,7 @@ const Homepage = () => {
       </section>
       <hr />
       <section>
-        <a href='https://github.com/lockys/NewAwesomeSearch'>Awesome search</a>{' '}
+        <a href='https://github.com/lockys/NewAwesomeSearch'>Awesome Search</a>{' '}
         is built by:
         <br />
         <br />
@@ -153,6 +153,15 @@ const Homepage = () => {
             </div>
           </div>
         </div>
+      </section>
+      <section
+        style={{
+          float: 'right',
+        }}
+      >
+        <span style={{ color: 'red' }}>Awesome</span>
+        <span style={{ color: 'blue' }}>Search</span> from 2015 to{' '}
+        {new Date().getFullYear()}
       </section>
     </div>
   );

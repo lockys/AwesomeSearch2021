@@ -23,7 +23,7 @@ const awesomeLists = ({ topic, subjects }) => {
 
   return (
     <div className={classes.AwesomeLists}>
-      <div className="alert alert-success">
+      <div className='alert alert-success'>
         Lists are sorted alphabetically! You can easily find it :)
       </div>
       <h1>{topic}</h1>
@@ -38,7 +38,7 @@ const awesomeLists = ({ topic, subjects }) => {
             }}
             to={`/${subject.repo}`}
           >
-            # {subject.name}{' '}
+            {subject.name}
           </Link>
         );
       })}
