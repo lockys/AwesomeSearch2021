@@ -1,5 +1,5 @@
 .AwesomeSearch {
-  width: 960px;
+  max-width: 1024px;
   margin: 0px auto;
   padding: 10px;
   background-color: white;
