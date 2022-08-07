@@ -1,11 +1,18 @@
 .AwesomeSearch {
   max-width: 1024px;
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 10px;
-  background-color: white;
   position: relative;
   height: 100vh;
   overflow-y: auto;
+}
+
+.dark-theme {
+  background-color: #151513;
+}
+
+.normal-theme {
+  background-color: white;
 }
 
 .BurgerButton {

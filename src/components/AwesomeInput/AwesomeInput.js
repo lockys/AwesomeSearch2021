@@ -18,8 +18,8 @@ const awesomeInput = (props) => {
               props.homeOnClick('');
             }}
           />
-          <span style={{ color: 'red' }}>Awesome</span>
-          <span style={{ color: 'blue' }}>Search</span>
+          <span style={{ color: '#C7372F' }}>Awesome</span>
+          <span style={{ color: '#C7372F' }}>Search</span>
         </label>
         <input
           id='subject'

@@ -12,7 +12,6 @@ a.ViewOnGithubBtn {
   justify-content: space-between;
   position: sticky;
   top: -11px;
-  background-color: white;
   z-index: 10;
   padding: 10px;
   opacity: 0.9;

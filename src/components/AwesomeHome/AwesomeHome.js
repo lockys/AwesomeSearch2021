@@ -4,21 +4,15 @@ import GoogleAd from './GoogleAd';
 const Homepage = () => {
     return (
         <div className={classes.HomePage}>
-            <div className='alert alert-success'>
-                👉 If you prefer old awesome search, please refer to{' '}
-                <a href='https://legacy.awesomelists.top/#/'>old awesome search</a>
-            </div>
             <p
                 style={{
-                    backgroundColor: '#eee',
                     padding: '5px',
-                    color: 'grey',
                     textAlign: 'center',
                 }}
             >
-                <span style={{color: 'red'}}>Awesome</span>
-                <span style={{color: 'blue'}}>Search</span> makes you find what you
-                want in awesome lists more quickly.
+                [<span style={{color: '#C7372F'}}>Awesome</span>
+                <span style={{color: '#C7372F'}}>Search</span> makes you find what you
+                want in awesome lists more quickly.]
             </p>
 
             <section>
@@ -74,6 +68,11 @@ const Homepage = () => {
                     Awesome Node.js
                 </a>
                 !
+            </section>
+            <h1>Old Awesome Search</h1>
+            <section>
+                👉If you prefer old awesome search, please refer to{' '}
+                <a href='https://legacy.awesomelists.top/#/'>old awesome search</a>
             </section>
             <h1>Credit To</h1>
             <section>
@@ -168,8 +167,8 @@ const Homepage = () => {
                     float: 'right',
                 }}
             >
-                <span style={{color: 'red'}}>Awesome</span>
-                <span style={{color: 'blue'}}>Search</span> from 2015 to{' '}
+                <span style={{color: '#C7372F'}}>Awesome</span>
+                <span style={{color: '#C7372F'}}>Search</span> from 2015 to{' '}
                 {new Date().getFullYear()}
             </section>
         </div>
