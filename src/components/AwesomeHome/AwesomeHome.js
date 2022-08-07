@@ -122,8 +122,8 @@ const Homepage = () => {
                             </a>
                         </div>
                         <div className='media-content'>
-                            Calvin Jeng is a software developer working for DBS - 星展銀行,
-                            previously a fullstack engineer at Garmin.
+                            Calvin Jeng is a front-end developer working for DBS Bank(星展銀行),
+                            previously a back-end developer at Garmin.
                         </div>
                     </div>
                 </div>
@@ -155,6 +155,11 @@ const Homepage = () => {
                     </div>
                 </div>
                 <br/>
+                <blockquote>
+                    Explanation: I'm sorry that I added a Google ad here, I'm trying to see if this ad could provide
+                    some helps for the domain name fee. You should only see this ad in the home page. If this bothers
+                    you a lot, please email me - lockys.tw(at)gmail.com. I'll remove it.
+                </blockquote>
                 <GoogleAd/>
                 <br/>
             </section>
