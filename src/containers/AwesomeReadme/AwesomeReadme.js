@@ -37,7 +37,7 @@ class AwesomeReadme extends Component {
     const infoLastMod = JSON.parse(localStorage.getItem('infoLastMod'));
 
     axios
-      .get(`https://awesomelist.up.railway.app/readme/${user}/${repo}`)
+      .get(`https://api.awesomelists.top/readme/${user}/${repo}`)
       .then((res) => {
         let _html = this.fixImage({
           user,
