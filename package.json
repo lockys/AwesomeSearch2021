@@ -2,7 +2,7 @@
   "name": "awesome-search-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://dev.awesomelists.top",
+  "homepage": "https://awesomelists.top",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
@@ -19,12 +19,13 @@
     "react-icons": "^4.4.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "shebang-regex": "^4.0.0",
     "timeago-react": "^3.0.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",

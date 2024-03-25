@@ -176,7 +176,7 @@ class AwesomeReadme extends Component {
 
       if (/h[1-6]/i.test(node.tagName) && node.innerText.trim() !== '') {
         headers.push({
-          id: node.childNodes[0].getAttribute('id'),
+          id: node.childNodes[0].getAttribute ? node.childNodes[0].getAttribute('id') : node.childNodes[0],
           level: parseInt(node.tagName.replace('H', '')),
           title: node.innerText.trim(),
         });
