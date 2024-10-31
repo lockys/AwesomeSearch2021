@@ -1,5 +1,4 @@
 import classes from './AwesomeHome.module.css';
-import GoogleAd from './GoogleAd';
 
 const Homepage = () => {
     return (
@@ -154,12 +153,6 @@ const Homepage = () => {
                     </div>
                 </div>
                 <br/>
-                <blockquote>
-                    Explanation: I'm sorry that I added a Google ad here, I'm trying to see if this ad could provide
-                    some helps for the domain name fee. You should only see this ad in the home page. If this bothers
-                    you a lot, please email me - lockys.tw(at)gmail.com. I'll remove it.
-                </blockquote>
-                <GoogleAd/>
                 <br/>
             </section>
             <section
